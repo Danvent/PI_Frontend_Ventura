@@ -1,0 +1,35 @@
+<h2>Registrar Departamentos </h2>
+<form  novalidate [formGroup]="department" (submit)="registrar()">
+  <div class="row">
+    <div class="col-lg-3">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion">
+    </div>
+    <div class="col-lg-3">
+        <label for="document">Numero</label>
+        <input type="text" class="form-control" id="numero" name="numero" formControlName="numero">
+    </div>
+    <div class="col-lg-3">
+        <label for="piso">Piso</label>
+        <input type="text" class="form-control" id="piso" name="piso" formControlName="piso">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3" formGroupName="category">
+        <label for="idCategory">Categoria</label>
+        <!-- <input type="text" class="form-control" id="type" name="type" [(ngModel)]="data!.type"> -->
+        <select name="category" id="idCategory" class="form-select" formControlName="idCategory" >
+          <option value="-1">[Seleccione]</option>
+          <option  *ngFor="let type of categorias" value="{{type.idCategory}}">
+            {{type.precio}}
+          </option>
+        </select>
+    </div>
+    <div>
+      <button type="buton" class="btn btn-primary mt-2" type="submit">Registrar</button>
+    </div>
+  </div>
+</form>
+<div>
+  <app-registrar-categoria></app-registrar-categoria>
+</div>

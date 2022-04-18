@@ -1,0 +1,34 @@
+<h2>Registrar Categoria </h2>
+<form  novalidate [formGroup]="categoria" (submit)="registrar()">
+  <div class="row">
+    <div class="col-lg-3">
+      <label for="cuartos">cuartos</label>
+      <input type="text" class="form-control" id="cuartos" name="cuartos" formControlName="cuartos">
+    </div>
+    <div class="col-lg-3">
+        <label for="cocinas">cocinas</label>
+        <input type="text" class="form-control" id="cocinas" name="cocinas" formControlName="cocinas">
+    </div>
+    <div class="col-lg-3">
+        <label for="baños">baños</label>
+        <input type="text" class="form-control" id="baños" name="baños" formControlName="baños">
+    </div>
+    <div class="col-lg-3">
+      <label for="estacionamientos">estacionamientos</label>
+      <input type="text" class="form-control" id="estacionamientos" name="estacionamientos" formControlName="estacionamientos">
+  </div>
+  <div class="col-lg-3">
+    <label for="antiguedad">antiguedad</label>
+    <input type="text" class="form-control" id="antiguedad" name="antiguedad" formControlName="antiguedad">
+</div>
+<div class="col-lg-3">
+  <label for="precio">precio</label>
+  <input type="text" class="form-control" id="precio" name="precio" formControlName="precio">
+</div>
+  </div>
+  <div class="row">
+    <div>
+      <button type="buton" class="btn btn-primary mt-2" type="submit">Registrar</button>
+    </div>
+  </div>
+</form>

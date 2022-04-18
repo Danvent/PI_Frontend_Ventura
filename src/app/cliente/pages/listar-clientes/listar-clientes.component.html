@@ -1,0 +1,33 @@
+<app-header-nav></app-header-nav>
+<div class="flex-fill ms-4 container-xxl">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Id</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let cliente of clientes; let i = index" >
+      <tr class="align-middle">
+        <th scope="row">{{i+1}}</th>
+        <td>{{cliente.nombre}} {{cliente.nombre2}}</td>
+        <td>{{cliente.apellidoP}} {{cliente.apellidoM}}</td>
+        <td>{{cliente.documento}}</td>
+        <td>{{cliente.tipo}}</td>
+        <td>{{cliente.correo}}</td>
+        <td>{{cliente.celular}}</td>
+        <td>{{cliente.fechaNac | date}}</td>
+        <td>
+          <a class="btn btn-danger" (click)="eliminarCliente(cliente.idcustomer)">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
