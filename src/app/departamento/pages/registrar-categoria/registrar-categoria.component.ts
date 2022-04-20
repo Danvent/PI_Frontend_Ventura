@@ -18,22 +18,37 @@ export class RegistrarCategoriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoria = this.fb.group({
+      descripcion: [''],
+      area:[''],
       cuartos: [''],
       cocinas: [''],
-      baños: [''],
+      banios: [''],
       estacionamientos: [''],
       antiguedad: [''],
-      precio: ['']
+      precio: [''],
+      createdAt: [Date.now()],
+      updatedAt:[Date.now()]
     })
   }
+
 
   registrar(){
     console.log(this.categoria.value)
     this.categoriaService.registrarCategoria(this.categoria.value)
                          .subscribe({
-                           next : (resp) => alert(resp.mensaje),
+                           next : (resp) => {alert(resp.mensaje);
+                                             this.ngOnInit();
+                          },
                            error: (err) => console.warn(err)
                          })
+  }
+
+  eliminarCategoria(i: number): void{
+    this.categoriaService.eliminarCategoria(i)
+                         .subscribe({
+                           next: (resp) => {alert(resp.mensaje)},
+                           error: (err) => console.log(err)
+                         });
   }
 
 }

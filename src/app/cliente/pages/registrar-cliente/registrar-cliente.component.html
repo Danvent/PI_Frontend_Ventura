@@ -22,11 +22,11 @@
       <input type="text" class="form-control form__input" id="documento" name="documento" placeholder=" " formControlName="documento">
       <label for="documento" class="label__name">Documento</label>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2 ">
       <label for="type">Tipo</label>
       <!-- <input type="text" class="form-control" id="type" name="type" [(ngModel)]="data!.type"> -->
-      <select name="tipo" id="tipo" class="form-select" formControlName="tipo" >
-        <option value="-1">[Seleccione]</option>
+      <select name="tipo" id="tipo" class="form-select form__select" formControlName="tipo">
+        <option value="-1" selected>[Seleccione]</option>
         <option value="{{i}}" *ngFor="let tipo of types; let i = index" >
           {{tipo | uppercase}}
         </option>
@@ -79,36 +79,16 @@
              <ng-container formArrayName="pets" *ngFor="let o of pets.controls; let i = index">
               <div class="row" [formGroupName]="i">
                 <b>Pet {{i+1}}</b> <button class="btn btn-danger" (click)="removePet(i)" >Remover Mascota </button>
-                <div class="col-sm-5">
-                  <label for="descripcion">Tipo</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion formControlName="descripcion">
+                <div class="col-sm-5 form-floating mb-3">
+                  <input type="text" class="form-control form__input" id="descripcion" name="descripcion" placeholder=" " formControlName="descripcion">
+                  <label for="descripcion" class="label__name">Descripcion</label>
                 </div>
-
-                <div class="col-sm-4">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" #nombre formControlName="nombre">
+                <div class="col-sm-4 form-floating mb-3">
+                  <input type="text" class="form-control form__input" id="nombre" name="nombre" placeholder=" " formControlName="nombre">
+                  <label for="nombre" class="label__name">Nombre</label>
                 </div>
-           <!-- <div class="col-sm-2">
-             <label for="descripcion">Raza</label>
-             <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion formControlNam="descripcion">
-           </div>
-           <div class="col">
-             <label for="descripcion">Color</label>
-             <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion formControlNam="descripcion">
-           </div>
-           <div class="col">
-             <label for="descripcion">Sexo</label>
-             <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion formControlNam="descripcion">
-           </div>
-           <div class="col-auto col-2">
-             <label for="descripcion">Edad</label>
-             <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion formControlNam="descripcion">
-           </div> -->
               </div>
              </ng-container>
-
-
-
           </div>
         </div>
       </div>

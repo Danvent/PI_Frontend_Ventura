@@ -21,7 +21,7 @@
         <select name="category" id="idCategory" class="form-select" formControlName="idCategory" >
           <option value="-1">[Seleccione]</option>
           <option  *ngFor="let type of categorias" value="{{type.idCategory}}">
-            {{type.precio}}
+            {{type.descripcion}}
           </option>
         </select>
     </div>
@@ -30,6 +30,6 @@
     </div>
   </div>
 </form>
-<div>
+<div class="mt-5">
   <app-registrar-categoria></app-registrar-categoria>
 </div>

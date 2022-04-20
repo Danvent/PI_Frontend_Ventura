@@ -1,29 +1,37 @@
 <h2>Registrar Categoria </h2>
 <form  novalidate [formGroup]="categoria" (submit)="registrar()">
   <div class="row">
-    <div class="col-lg-3">
-      <label for="cuartos">cuartos</label>
-      <input type="text" class="form-control" id="cuartos" name="cuartos" formControlName="cuartos">
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="descripcion" name="descripcion" placeholder=" " formControlName="descripcion">
+      <label for="descripcion" class="label__name">Descripcion</label>
     </div>
-    <div class="col-lg-3">
-        <label for="cocinas">cocinas</label>
-        <input type="text" class="form-control" id="cocinas" name="cocinas" formControlName="cocinas">
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="area" name="area" placeholder=" " formControlName="area">
+      <label for="area" class="label__name">Area</label>
     </div>
-    <div class="col-lg-3">
-        <label for="baños">baños</label>
-        <input type="text" class="form-control" id="baños" name="baños" formControlName="baños">
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="cuartos" name="cuartos" placeholder=" " formControlName="cuartos">
+      <label for="cuartos" class="label__name">Cuartos</label>
     </div>
-    <div class="col-lg-3">
-      <label for="estacionamientos">estacionamientos</label>
-      <input type="text" class="form-control" id="estacionamientos" name="estacionamientos" formControlName="estacionamientos">
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="cocinas" name="cocinas" placeholder=" " formControlName="cocinas">
+        <label for="cocinas" class="label__name">Cocinas</label>
+    </div>
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="baños" name="baños" placeholder=" " formControlName="banios">
+        <label for="baños" class="label__name">Baños</label>
+    </div>
+    <div class="col-lg-3 form-floating mb-3">
+      <input type="text" class="form-control form__input" id="estacionamientos" name="estacionamientos" placeholder=" " formControlName="estacionamientos">
+      <label for="estacionamientos" class="label__name">Estacionamientos</label>
   </div>
-  <div class="col-lg-3">
-    <label for="antiguedad">antiguedad</label>
-    <input type="text" class="form-control" id="antiguedad" name="antiguedad" formControlName="antiguedad">
-</div>
-<div class="col-lg-3">
-  <label for="precio">precio</label>
-  <input type="text" class="form-control" id="precio" name="precio" formControlName="precio">
+  <div class="col-lg-3 form-floating mb-3">
+    <input type="text" class="form-control form__input" id="antiguedad" name="antiguedad" placeholder=" " formControlName="antiguedad">
+    <label for="antiguedad" class="label__name">Antiguedad</label>
+ </div>
+<div class="col-lg-3 form-floating mb-3">
+  <input type="text" class="form-control form__input" id="precio" name="precio"placeholder=" " formControlName="precio">
+  <label for="precio" class="label__name">Precio</label>
 </div>
   </div>
   <div class="row">

@@ -29,6 +29,17 @@
   color: #949494;
 }
 
+.form__select{
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #949494 ;
+  border-radius: 0px;
+}
+.form__select:focus{
+  box-shadow: none;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

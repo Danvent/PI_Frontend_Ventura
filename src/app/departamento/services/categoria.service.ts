@@ -20,4 +20,13 @@ export class CategoriaService {
   registrarCategoria(data:Categoria): Observable<any>{
     return this.http.post(`${this._apiUrl}/rest/category`,data);
   }
+
+  actualizarCategoria(data:Categoria): Observable<any>{
+    return this.http.put(`${this._apiUrl}/rest/category`,data);
+  }
+
+  eliminarCategoria(idCategory: number): Observable<any>{
+    return this.http.delete(`${this._apiUrl}/rest/category/${idCategory}`);
+  }
+
 }

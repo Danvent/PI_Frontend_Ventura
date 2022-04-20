@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RegistarDepartamentoComponent } from './pages/registar-departamento/registar-departamento.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrarCategoriaComponent } from './pages/registrar-categoria/registrar-categoria.component';
+import { CategoriaTablaComponent } from './components/categoria-tabla/categoria-tabla.component';
 
 
 
 @NgModule({
   declarations: [
     RegistarDepartamentoComponent,
-    RegistrarCategoriaComponent
+    RegistrarCategoriaComponent,
+    CategoriaTablaComponent
   ],
   exports:[
     RegistarDepartamentoComponent,
-    RegistrarCategoriaComponent
+    RegistrarCategoriaComponent,
+    CategoriaTablaComponent
   ],
   imports: [
     CommonModule,
