@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>Registrar Categoria</h1>
+<div mat-dialog-content>
+  <form [formGroup]="categoriaForm">
+      <mat-form-field  appearance="outline" >
+        <mat-label>Descripcion</mat-label>
+        <input type="text" matInput placeholder="Categoria del departamento" formControlName="descripcion" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="!categoriaForm.controls['descripcion'].hasError('maxLength') && !categoriaForm.controls['descripcion'].hasError('required') ">
+          De 5 a 15 <strong> caracteres </strong>
+        </mat-error>
+        <mat-error *ngIf="categoriaForm.controls['descripcion'].hasError('required')"   >
+          La descripcion es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Area</mat-label>
+        <input type="text" matInput placeholder="Area del departamento" formControlName="area" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="categoriaForm.controls['area'].hasError('required')">
+         El area es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    <mat-form-field >
+      <mat-label>Cuartos</mat-label>
+      <input type="text" matInput placeholder="Cuartos del deparmaneto" formControlName="cuartos" [errorStateMatcher]="matcher" >
+      <mat-error *ngIf="categoriaForm.controls['cuartos'].hasError('required')">
+        Cantidad de cuartos es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Cocinas</mat-label>
+      <input type="text" matInput placeholder="Categoria del deparmaneto" formControlName="cocinas" [errorStateMatcher]="matcher" >
+      <mat-error *ngIf="categoriaForm.controls['cocinas'].hasError('required')">
+        Cantidad de cocinas es <strong>requerida</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field  >
+      <mat-label>Baños</mat-label>
+      <input type="text" matInput placeholder="Categoria del deparmaneto" formControlName="banios" [errorStateMatcher]="matcher" >
+      <mat-error *ngIf="categoriaForm.controls['banios'].hasError('required')">
+        Cantidad de baños es <strong>requerida</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field  >
+      <mat-label>Estacionamientos</mat-label>
+      <input type="text" matInput placeholder="Categoria del deparmaneto" formControlName="estacionamientos" [errorStateMatcher]="matcher" >
+      <mat-error *ngIf="categoriaForm.controls['estacionamientos'].hasError('required')">
+        Estacionamientos es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Antiguedad</mat-label>
+      <input type="text" matInput placeholder="Categoria del deparmaneto" formControlName="antiguedad" [errorStateMatcher]="matcher" >
+      <mat-error *ngIf="categoriaForm.controls['antiguedad'].hasError('required')">
+        La antiguedad es <strong>requerida</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" placeholder="Categoria del deparmaneto"  formControlName="precio" [errorStateMatcher]="matcher">
+      <span matPrefix>$&nbsp;</span>
+      <mat-error *ngIf="categoriaForm.controls['precio'].hasError('required')">
+        El precio es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+    <button mat-raised-button color="primary"  [disabled]="!categoriaForm.valid"  type="submit"  (click)="registrar()"> Registar</button>
+    <button mat-raised-button color="primary" [disabled]="!categoriaForm.valid" type="submit"  (click)="actualizar()"> Actualizar</button>
+</div>
+

@@ -1,6 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { Client } from '../../interfaces/cliente.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { Cliente } from '../../interfaces/cliente.interface';
 import { ClienteService } from '../../services/cliente.service';
+import { DialogClienteComponent } from '../dialog-cliente/dialog-cliente.component';
 
 @Component({
   selector: 'app-listar-clientes',
@@ -10,11 +12,11 @@ import { ClienteService } from '../../services/cliente.service';
 })
 export class ListarClientesComponent implements OnInit {
 
-  clientes: Client[] = [];
+  clientes: Cliente[] = [];
 
   constructor(
     private clienteService:ClienteService,
-    private ngZone:NgZone
+    private dialog: MatDialog
     )
      { }
 
@@ -35,4 +37,20 @@ export class ListarClientesComponent implements OnInit {
                          error: (err) => console.log(err)
                        })
   }
+
+
+  openDialog(){
+    this.dialog.open(DialogClienteComponent , {
+      width: '80%'
+    })
+  }
+
+  editDialog(idCustomer : number){
+    this.dialog.open(DialogClienteComponent, {
+      width: '80%',
+      data: idCustomer
+    })
+  }
+
+
 }

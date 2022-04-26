@@ -1,0 +1,134 @@
+<h1 mat-dialog-title>Registrar cliente</h1>
+<div mat-dialog-content>
+  <form  novalidate [formGroup]="clientForm" >
+    <mat-accordion>
+      <mat-expansion-panel class="dialog__cliente" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Datos del cliente
+          </mat-panel-title>
+          <mat-panel-description>
+            Mostrar datos del cliente
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Primer Nombre</mat-label>
+          <input matInput placeholder="gato" formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Segundo Nombre</mat-label>
+          <input matInput placeholder="gato" formControlName="nombre2">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Apellido Paterno</mat-label>
+          <input matInput placeholder="gato" formControlName="apellidoP">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Apellido Materno</mat-label>
+          <input matInput placeholder="gato" formControlName="apellidoM">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Documento</mat-label>
+          <input matInput placeholder="gatito" formControlName="documento">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Tipo de cliente</mat-label>
+          <mat-select [(ngModel)]="selected"  placeholder="tipo" formControlName="tipo" >
+            <mat-option value="-1">[Seleccione]</mat-option>
+            <mat-option *ngFor="let tipo of types ; let i = index" value="{{i}}">{{tipo | uppercase}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput placeholder="gatito" formControlName="correo">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Número Celular</mat-label>
+          <input matInput placeholder="gatito" formControlName="celular">
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Custom calendar color</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="fechaNac">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Departamento</mat-label>
+          <input matInput placeholder="gatito" formControlName="departamento">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Provincia</mat-label>
+          <input matInput placeholder="gatito" formControlName="provincia">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Distrito</mat-label>
+          <input matInput placeholder="gatito" formControlName="distrito">
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Datos de mascota
+          </mat-panel-title>
+          <mat-panel-description>
+            Currently I am {{panelOpenState ? 'open' : 'closed'}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <button (click)="addNewPets()" >Agregar mascota</button>
+        <ng-container formArrayName="pets" *ngFor="let o of pets.controls; let i = index">
+          <div [formGroupName]="i" >
+            <b>Pet {{i+1}}</b> <button class="btn btn-danger" (click)="removePet(i)" >Remover Mascota </button>
+            <mat-form-field>
+              <mat-label>Descripcion</mat-label>
+              <input matInput placeholder="Descripcion de mascota" formControlName="descripcion" type="text">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Nombre de mascota" formControlName="nombre">
+            </mat-form-field>
+          </div>
+        </ng-container>
+      </mat-expansion-panel>
+    </mat-accordion>
+      <!--Acordeon para desplegar el registro de la mascota-->
+      <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Registrar Mascotas
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="col-12">
+              <a class="btn btn-primary mt-2" (click)="addNewPets()">Añadir mascota</a>
+            </div>
+            <div class="accordion-body" >
+               formArrayName="pets" -->
+               <!-- <ng-container formArrayName="pets" *ngFor="let o of pets.controls; let i = index">
+                <div class="row" [formGroupName]="i">
+                  <b>Pet {{i+1}}</b> <button class="btn btn-danger" (click)="removePet(i)" >Remover Mascota </button>
+                  <div class="col-sm-5 form-floating mb-3">
+                    <input type="text" class="form-control form__input" id="descripcion" name="descripcion" placeholder=" " formControlName="descripcion">
+                    <label for="descripcion" class="label__name">Descripcion</label>
+                  </div>
+                  <div class="col-sm-4 form-floating mb-3">
+                    <input type="text" class="form-control form__input" id="nombre" name="nombre" placeholder=" " formControlName="nombre">
+                    <label for="nombre" class="label__name">Nombre</label>
+                  </div>
+                </div>
+               </ng-container>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!--Fin del acordeon para el registro de mascota-->
+
+      <div>
+        <button type="buton" class="btn btn-primary mt-2" (click)="registrar()">Registrar</button>
+
+        <button type="buton" class="btn btn-primary mt-2" (click)="actualizar()">Actualizar</button>
+      </div>
+  </form>
+
+</div>

@@ -29,4 +29,8 @@ export class CategoriaService {
     return this.http.delete(`${this._apiUrl}/rest/category/${idCategory}`);
   }
 
+  listarCategoriaUnica(idCategory: number): Observable<Categoria>{
+    return this.http.get<Categoria>(`${this._apiUrl}/rest/category/${idCategory}`);
+  }
+
 }

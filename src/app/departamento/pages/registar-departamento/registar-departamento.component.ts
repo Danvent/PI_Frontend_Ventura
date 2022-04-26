@@ -28,6 +28,8 @@ export class RegistarDepartamentoComponent implements OnInit {
           error: (err) => console.error(err)
         })
 
+    console.log(this.categorias);
+
     this.department= this.fb.group({
       descripcion: [''],
       numero: [''],

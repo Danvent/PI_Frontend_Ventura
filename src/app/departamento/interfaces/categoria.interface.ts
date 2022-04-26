@@ -10,4 +10,5 @@ export interface Categoria {
   idCategory:       number;
   createdAt:        Date;
   updatedAt:        Date;
+  usuario :         string;
 }

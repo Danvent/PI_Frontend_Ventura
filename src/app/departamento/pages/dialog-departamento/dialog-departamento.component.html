@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Registra Departamento</h1>
+<div mat-dialog-content>
+  <form [formGroup]="departmentForm"  >
+    <mat-form-field>
+      <mat-label>Descripcion</mat-label>
+      <input matInput placeholder="Descripcion del departamento" type="text"   formControlName="descripcion">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Letra</mat-label>
+      <input matInput placeholder="Letra de departamento"  type="text"  formControlName="letra">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Numero</mat-label>
+      <input matInput placeholder="Numero de departamento"  type="text"  formControlName="numero">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Piso</mat-label>
+      <input matInput placeholder="Piso de departamento" type="text"   formControlName="piso">
+    </mat-form-field>
+    <mat-form-field formGroupName="category">
+      <mat-label>Departamento Categoria</mat-label>
+      <mat-select placeholder="Categoria" [(value)]="value" formControlName="idCategory">
+        <mat-option value="-1">[Seleccione]</mat-option>
+        <mat-option *ngFor="let type of categorias" value="{{type.idCategory}}">{{type.descripcion}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+      <div>
+        <button type="buton" class="btn btn-primary mt-2" type="submit">Registrar</button>
+      </div>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+  <button mat-raised-button color="primary" type="submit" (click)="registrar()" >Agregar</button>
+</div>

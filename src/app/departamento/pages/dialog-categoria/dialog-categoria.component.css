@@ -1,0 +1,41 @@
+mat-form-field{
+  width: 50%;
+  flex-wrap: 15px;
+}
+
+ .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+ .mat-form-field {
+  width: 31%;
+}
+
+@media (min-width : 600px) and (max-width: 950px) {
+  .mat-form-field{
+    width: 48%;
+  }
+}
+
+@media (min-width : 350px) and (max-width: 600px) {
+  .mat-form-field{
+    width: 100%;
+  }
+}
+
+ form {
+  margin-bottom: 20px;
+}
+
+ form > * {
+  margin: 5px 0;
+}
+
+ .mat-radio-button {
+  margin: 0 12px;
+}
+
+
+ button, a {
+  margin-right: 12px;
+}

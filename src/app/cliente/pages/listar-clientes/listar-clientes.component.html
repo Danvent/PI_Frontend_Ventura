@@ -12,6 +12,7 @@
         <th scope="col">Celular</th>
         <th scope="col">Fecha de Nacimiento</th>
         <th scope="col">Id</th>
+        <th scope="col">Id</th>
       </tr>
     </thead>
     <tbody *ngFor="let cliente of clientes; let i = index" >
@@ -26,6 +27,8 @@
         <td>{{cliente.fechaNac | date}}</td>
         <td>
           <a class="btn btn-danger" (click)="eliminarCliente(cliente.idcustomer)">Eliminar</a>
+          <button (click)="openDialog()" >Abrir modal</button>
+          <button (click)="editDialog(cliente.idcustomer)" >aCTUALIZAR</button>
         </td>
       </tr>
     </tbody>

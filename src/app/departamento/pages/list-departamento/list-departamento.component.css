@@ -1,0 +1,24 @@
+/* Structure */
+#main{
+  display: flex;
+  justify-content: end;
+  margin-top: 25px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.icon-delete{
+  color: red;
+  cursor: pointer;
+}
+.icon-update{
+  color: blue;
+  cursor: pointer;
+}

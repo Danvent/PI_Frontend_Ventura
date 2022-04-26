@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
 import { DepartamentoModule } from './departamento/departamento.module';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     FormsModule,
     DepartamentoModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AuthModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

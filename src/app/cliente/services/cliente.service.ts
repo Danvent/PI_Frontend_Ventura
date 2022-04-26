@@ -1,7 +1,7 @@
 import { HttpClient} from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Client } from '../interfaces/cliente.interface';
+import { Cliente } from '../interfaces/cliente.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,14 @@ export class ClienteService {
 
   constructor(private http:HttpClient) { }
 
-  listarClientes() : Observable<Client[]> {
+  listarClientes() : Observable<Cliente[]> {
     const url = `${this._apiUrl}/rest/customer`
-    return this.http.get<Client[]>(url);
+    return this.http.get<Cliente[]>(url);
+  }
+
+  obtenerCliente(idcustomer : number) : Observable<Cliente>{
+    const url = `${this._apiUrl}/rest/customer/${idcustomer}`
+    return this.http.get<Cliente>(url);
   }
 
   registrarCliente(data:any): Observable<any>{
@@ -23,5 +28,9 @@ export class ClienteService {
 
   eliminarCliente(idcustomer:any) : Observable<any>{
     return this.http.delete(`${this._apiUrl}/rest/customer/${idcustomer}`);
+  }
+
+  actualizarCliente(data:any) : Observable<any>{
+    return this.http.put(`${this._apiUrl}/rest/customer`,data);
   }
 }
